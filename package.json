@@ -1,0 +1,25 @@
+{
+  "name": "phonato-api",
+  "version": "0.1.0",
+  "description": "Flexible API that works with NATO phonetic alphabet",
+  "main": "./src/main.ts",
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brickwalker/phonato-api.git"
+  },
+  "author": "Artem Nedostup (https://www.linkedin.com/in/artemnedostup)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brickwalker/phonato-api/issues"
+  },
+  "homepage": "https://github.com/brickwalker/phonato-api#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
