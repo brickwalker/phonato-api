@@ -1,7 +1,8 @@
 import express from "express";
 import { NatoRouter } from "./NatoRouter";
+import { NatoAppInterface } from "../interfaces/interfaces";
 
-export class NatoApp {
+export class NatoApp implements NatoAppInterface {
   public rootEndpoint: string;
   constructor(public appName: string, public port: number) {
     this.rootEndpoint = appName.toLowerCase();

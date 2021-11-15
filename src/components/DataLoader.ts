@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
-import { NatoDictionary } from "../interfaces/interfaces";
+import { NatoDictionary, DataLoaderInterface } from "../interfaces/interfaces";
 
-export class DataLoader {
+export class DataLoader implements DataLoaderInterface{
   private _data: NatoDictionary = {};
 
   constructor(public dataPath: string) {
@@ -17,8 +17,8 @@ export class DataLoader {
     this._data = data;
   }
 
-  showOne(letter: string): string {
-    return this._data[letter.toUpperCase()];
+  showOne(letter: string): NatoDictionary {
+    return { [letter.toUpperCase()]: this._data[letter.toUpperCase()] };
   }
 
   showRandom(number: number): NatoDictionary {
