@@ -1,13 +1,15 @@
 import { readFileSync } from "fs";
+import { NatoDictionary } from "../interfaces/interfaces"
 
 export class DataLoader {
-  private _data: any;
+  private _data: NatoDictionary = {};
+
   constructor(dataPath: string) {
     this.data = dataPath;
   }
 
-  get data(): any {
-    return this._data;
+  get data(): string {
+    return JSON.stringify(this._data);
   }
 
   set data(dataPath: string) {
@@ -19,19 +21,19 @@ export class DataLoader {
     return this._data[letter.toUpperCase()];
   }
 
-  showRandom(number: number): any {
+  showRandom(number: number): NatoDictionary {
     const keys = Object.keys(this._data);
     number = number <= 0 || number > keys.length ? keys.length : number;
     const selectedKeys: string[] = [];
     while (selectedKeys.length < number) {
-      let index = Math.floor(Math.random() * keys.length);
-      let suggestedKey = keys[index];
+      const index = Math.floor(Math.random() * keys.length);
+      const suggestedKey = keys[index];
       if (!selectedKeys.includes(suggestedKey)) {
         selectedKeys.push(suggestedKey);
       }
     }
     selectedKeys.sort();
-    const result: any = {};
+    const result: NatoDictionary = {};
     selectedKeys.map((k) => (result[k] = this._data[k]));
     return result;
   }
