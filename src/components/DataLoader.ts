@@ -1,20 +1,20 @@
 import { readFileSync } from "fs";
-import { NatoDictionary } from "../interfaces/interfaces"
+import { NatoDictionary } from "../interfaces/interfaces";
 
 export class DataLoader {
   private _data: NatoDictionary = {};
 
-  constructor(dataPath: string) {
-    this.data = dataPath;
-  }
-
-  get data(): string {
-    return JSON.stringify(this._data);
-  }
-
-  set data(dataPath: string) {
+  constructor(public dataPath: string) {
     const data: string = readFileSync(dataPath, "utf-8");
-    this._data = JSON.parse(data);
+    this.data = JSON.parse(data);
+  }
+
+  get data(): NatoDictionary {
+    return this._data;
+  }
+
+  set data(data: NatoDictionary) {
+    this._data = data;
   }
 
   showOne(letter: string): string {
