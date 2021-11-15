@@ -20,7 +20,6 @@ export class DataLoader {
   }
 
   showRandom(number: number): any {
-    console.log("this is:", number);
     const keys = Object.keys(this._data);
     number = number <= 0 || number > keys.length ? keys.length : number;
     const selectedKeys: string[] = [];
