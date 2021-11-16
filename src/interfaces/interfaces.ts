@@ -16,7 +16,3 @@ export interface NatoAppInterface {
     port: number,
     run(): void
 }
-
-export interface NatoPostRequest {
-    input: string
-}

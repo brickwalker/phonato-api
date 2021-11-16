@@ -23,7 +23,11 @@ export class DataLoader implements DataLoaderInterface{
 
   showRandom(number: number): NatoDictionary {
     const keys = Object.keys(this._data);
-    number = number <= 0 || number > keys.length ? keys.length : number;
+    if (number < 0 || typeof number !== "number") {
+      number = 0
+    } else if (number > keys.length){
+      number = keys.length
+    }
     const selectedKeys: string[] = [];
     while (selectedKeys.length < number) {
       const index = Math.floor(Math.random() * keys.length);
@@ -39,7 +43,6 @@ export class DataLoader implements DataLoaderInterface{
   }
 
   spell(input: string): NatoDictionary[] {
-    // TODO error handling for input string
     input = input.toUpperCase();
     const inputArray = [...input];
     const result = inputArray.map(i => {
