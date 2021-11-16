@@ -1,4 +1,4 @@
-import { Router } from "express";
+import express, { Router } from "express";
 import { resolve } from "path";
 import { DataLoader } from "./DataLoader";
 
@@ -9,8 +9,15 @@ export class NatoRouter {
 
     const router: Router = Router();
 
+    router.use(express.json());
+
     router.get("/", (req, res) => {
       res.send(dataLoader.data);
+    });
+
+    router.get("/:letter", (req, res) => {
+      const letter = req.params.letter;
+      res.send(dataLoader.showOne(letter));
     });
 
     router.get("/random/:number?", (req, res) => {
@@ -23,9 +30,9 @@ export class NatoRouter {
       res.send(dataLoader.showRandom(number));
     });
 
-    router.get("/:letter", (req, res) => {
-      const letter = req.params.letter;
-      res.send(dataLoader.showOne(letter));
+    router.post("/", (req, res) => {
+      // TODO if req.body is not of NatoPostRequest format return error
+      res.send(dataLoader.spell(req.body.input));
     });
 
     return router;

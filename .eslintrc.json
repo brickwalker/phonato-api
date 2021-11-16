@@ -14,5 +14,10 @@
     "sourceType": "module"
   },
   "plugins": ["@typescript-eslint"],
-  "rules": {}
+  "rules": {
+    "no-warning-comments": [
+      "warn",
+      { "terms": ["todo", "fixme", "xxx"], "location": "anywhere" }
+    ]
+  }
 }

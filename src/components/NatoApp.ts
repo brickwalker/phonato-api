@@ -9,6 +9,7 @@ export class NatoApp implements NatoAppInterface {
   }
   run() {
     const app = express();
+    
     app.use(`/${this.rootEndpoint}`, NatoRouter.setupRoutes());
     app.listen(this.port, () => {
       console.log(

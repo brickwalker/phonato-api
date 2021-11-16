@@ -37,4 +37,18 @@ export class DataLoader implements DataLoaderInterface{
     selectedKeys.map((k) => (result[k] = this._data[k]));
     return result;
   }
+
+  spell(input: string): NatoDictionary[] {
+    // TODO error handling for input string
+    input = input.toUpperCase();
+    const inputArray = [...input];
+    const result = inputArray.map(i => {
+      if (Object.keys(this._data).includes(i)) {
+        return {[i]: this._data[i]};
+      } else {
+        return {[i]: ""};
+      }
+    });
+    return result;
+  }
 }

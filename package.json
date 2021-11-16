@@ -8,6 +8,7 @@
     "@types/node": "^16.11.7",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
+    "axios": "^0.24.0",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
     "nodemon": "^2.0.15",
@@ -24,6 +25,7 @@
     "start": "node ./dist/main.js",
     "start:watch": "nodemon --watch ./dist/ ./dist/main.js",
     "start:dev": "npm-run-all clean:dev build --parallel build:watch start:watch",
+    "request": "node ./dist/tests/request.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

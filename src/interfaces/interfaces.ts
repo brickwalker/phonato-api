@@ -5,13 +5,18 @@ export interface NatoDictionary {
 export interface DataLoaderInterface {
     dataPath: string,
     data: NatoDictionary,
-    showOne: (letter: string) => NatoDictionary,
-    showRandom: (number: number) => NatoDictionary
+    showOne(letter: string): NatoDictionary,
+    showRandom(number: number): NatoDictionary,
+    spell(input: string): NatoDictionary[]
 }
 
 export interface NatoAppInterface {
     rootEndpoint: string,
     appName: string,
     port: number,
-    run: () => void
+    run(): void
+}
+
+export interface NatoPostRequest {
+    input: string
 }
