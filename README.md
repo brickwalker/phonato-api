@@ -4,7 +4,7 @@ Flexible API that works with NATO phonetic alphabet
 ## Quick setup
 ```typescript
 /* To start server
-By default exposes endpoint http://hostname:3000/phonato
+By default exposes endpoint http://localhost:3000/phonato
 Endpoint and port can be changed in config.json
 */
 npm install
@@ -13,14 +13,14 @@ npm start
 
 ## How to use
 To **GET** full NATO alphabet:
-http://hostname:3000/phonato
+http://localhost:3000/phonato
 
 To **GET** NATO spelling for a single letter:
-http://hostname:3000/phonato/a
+http://localhost:3000/phonato/a
 ```
 {"A":"Alfa"}
 ```
-http://hostname:3000/phonato/z
+http://localhost:3000/phonato/z
 ```
 {"Z":"Zulu"}
 ```
@@ -39,7 +39,7 @@ http://localhost:3000/phonato/random/3
 {"Q":"Quebec","S":"Sierra","X":"X-ray"}
 ```
 
-To NATO spell your string, **POST** JSON `{ "input": "I am Artem" }`
+To NATO spell your string, **POST** JSON `{ "input": "I am Artem" }` to http://localhost:3000/phonato
 ```
    [{ I: 'India' },
     { ' ': '' },
