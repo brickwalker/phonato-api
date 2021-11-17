@@ -3,3 +3,6 @@ node_modules/
 
 # Transpiled JavaScript
 dist/
+
+# Test coverage reports
+.nyc_output/
