@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import { NatoDictionary, DataLoaderInterface } from "../interfaces/interfaces";
 
-export class DataLoader implements DataLoaderInterface{
+export class DataLoader implements DataLoaderInterface {
   private _data: NatoDictionary = {};
 
   constructor(public dataPath: string) {
@@ -24,9 +24,9 @@ export class DataLoader implements DataLoaderInterface{
   showRandom(number: number): NatoDictionary {
     const keys = Object.keys(this._data);
     if (number < 0 || typeof number !== "number") {
-      number = 0
-    } else if (number > keys.length){
-      number = keys.length
+      number = 0;
+    } else if (number > keys.length) {
+      number = keys.length;
     }
     const selectedKeys: string[] = [];
     while (selectedKeys.length < number) {
@@ -45,11 +45,11 @@ export class DataLoader implements DataLoaderInterface{
   spell(input: string): NatoDictionary[] {
     input = input.toUpperCase();
     const inputArray = [...input];
-    const result = inputArray.map(i => {
+    const result = inputArray.map((i) => {
       if (Object.keys(this._data).includes(i)) {
-        return {[i]: this._data[i]};
+        return { [i]: this._data[i] };
       } else {
-        return {[i]: ""};
+        return { [i]: "" };
       }
     });
     return result;

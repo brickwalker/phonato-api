@@ -16,3 +16,9 @@ export interface NatoAppInterface {
     port: number,
     run(): void
 }
+
+export interface NatoConfig {
+    appName?: string,
+    port?: number,
+    dataPath?: string
+}

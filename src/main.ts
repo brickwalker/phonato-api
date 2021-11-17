@@ -1,4 +1,7 @@
 import { NatoApp } from "./components/NatoApp";
+import { ConfigParser } from "./components/ConfigParser";
 
-const app = new NatoApp("PhoNato", 3000);
+const appName: string = ConfigParser.getAppName("PhoNato");
+const port: number = ConfigParser.getPort(3000);
+const app = new NatoApp(appName, port);
 app.run();

@@ -1,10 +1,12 @@
 import express, { Router } from "express";
 import { resolve } from "path";
 import { DataLoader } from "./DataLoader";
+import { ConfigParser } from "./ConfigParser";
 
 export class NatoRouter {
   static setupRoutes() {
-    const dataPath = resolve(__dirname, "../../data/data.json");
+    const relativePath = ConfigParser.getDataPath("../../data/data.json");
+    const dataPath = resolve(__dirname, relativePath);
     const dataLoader = new DataLoader(dataPath);
 
     const router: Router = Router();
@@ -15,7 +17,7 @@ export class NatoRouter {
       let number = 1;
       if (req.params.number) {
         number = parseInt(req.params.number);
-      } 
+      }
       res.send(dataLoader.showRandom(number));
     });
 
