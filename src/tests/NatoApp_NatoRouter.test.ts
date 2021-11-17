@@ -3,10 +3,9 @@ import { expect } from "chai";
 import * as config from "../config/config.json";
 
 describe("NatoApp & NatoRouter", function () {
-
   let baseUrl: string;
-  before (function () {
-    baseUrl = `http://localhost:${config.port}/${config.appName.toLowerCase()}`
+  before(function () {
+    baseUrl = `http://localhost:${config.port}/${config.appName.toLowerCase()}`;
   });
 
   it("should return all NATO alphabet keys to GET request onto root endpoint", function (done) {
@@ -26,7 +25,7 @@ describe("NatoApp & NatoRouter", function () {
     axios
       .get(`${baseUrl}/${letter}`)
       .then(function (response) {
-        expect(response.data).to.deep.equal({"T": "Tango"});
+        expect(response.data).to.deep.equal({ T: "Tango" });
         done();
       })
       .catch(function (error) {
